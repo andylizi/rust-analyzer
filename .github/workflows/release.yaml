@@ -14,15 +14,23 @@ jobs:
   dist-x86_64-unknown-linux-musl:
     name: dist (x86_64-unknown-linux-musl)
     runs-on: ubuntu-20.04
+    env:
+      RA_TARGET: x86_64-unknown-linux-musl
+      RUSTFLAGS: -Ctarget-feature=-crt-static
+      TEST_A: true
     container:
       image: rust:alpine
       env:
         RA_TARGET: x86_64-unknown-linux-musl
         RUSTFLAGS: -Ctarget-feature=-crt-static
+        TEST_B: true
       volumes:
         - /usr/local/cargo/registry
 
     steps:
+    - name: Print env
+      run: env
+
     - name: Install dependencies
       run: apk add --no-cache git clang musl-dev
 
