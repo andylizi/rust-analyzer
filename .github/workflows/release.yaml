@@ -20,8 +20,9 @@ jobs:
     container:
       image: rust:alpine
       volumes:
-        - /usr/local/cargo/registry
+      - /usr/local/cargo/registry
 
+    steps:
     - name: Install dependencies
       run: apk add --no-cache git clang lld musl-dev
 
