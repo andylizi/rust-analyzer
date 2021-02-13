@@ -24,7 +24,7 @@ jobs:
 
     steps:
     - name: Install dependencies
-      run: apk add --no-cache git musl-dev
+      run: apk add --no-cache git clang musl-dev
 
     - name: Checkout repository
       uses: actions/checkout@v2
