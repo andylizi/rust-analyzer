@@ -19,6 +19,8 @@ jobs:
       env:
         RA_TARGET: x86_64-unknown-linux-musl
         RUSTFLAGS: -Ctarget-feature=-crt-static
+      volumes:
+        - /usr/local/cargo/registry
 
     steps:
     - name: Install dependencies
