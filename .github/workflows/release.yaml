@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       RA_TARGET: x86_64-unknown-linux-musl
-      RUSTFLAGS: "-C linker=rust-ldd -C target-feature=-crt-static"
+      RUSTFLAGS: "-C linker=rust-lld -C target-feature=-crt-static"
     container:
       image: rust:alpine
       volumes:
@@ -25,9 +25,6 @@ jobs:
     steps:
     - name: Print env
       run: env
-    
-    - name: Install rust-lld
-      run: rustup component add llvm-tools-preview
 
     - name: Install dependencies
       run: apk add --no-cache git clang musl-dev
