@@ -20,11 +20,11 @@ jobs:
       RUSTFLAGS: -Ctarget-feature=-crt-static
 
     steps:
+    - name: Install dependencies
+      run: apk add --no-cache git musl-dev
+
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: Install dependencies
-      run: apk add --no-cache musl-dev
 
     - name: Dist
       run: cargo xtask dist
